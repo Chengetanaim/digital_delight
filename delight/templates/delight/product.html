@@ -1,0 +1,93 @@
+{% extends 'delight/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{{product.name }}{% endblock title %}
+</head>
+<body>
+    {% block content %}
+        <section id="prodetails" class="featured">
+            <div class= "singleimg">
+                <img class="big-img" src="{{ product.image1.url }}" width="100%" id="Mainimg" alt="">
+
+                <div class="img-grp">
+                    
+                    <div class="img-grp-col">
+                        <img src="{{ product.image1.url }}" width="100%" class="s-img" alt="">
+                    </div>
+
+                    <div class="img-grp-col">
+                        <img src="{{ product.image2.url }}" width="100%" class="s-img" alt="">
+                    </div>
+
+                    <div class="img-grp-col">
+                        <img src="{{ product.image3.url }}" width="100%" class="s-img" alt="">
+                    </div>
+
+                    <div class="img-grp-col">
+                        <img src="{{ product.image4.url }}" width="100%" class="s-img" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-pro-details">
+                <h5>{{ product.category }}</h5>
+
+                <h3>{{ product.name }}</h3>
+
+                <h4 class="price">{{ product.price }}</h4>
+
+                <h4 class="prodet">Details</h4>
+                <p>{{ product.description }}</p>
+
+                <h4 style="margin-top: 3%;">Contact Details</h4>
+                <div class="vendor-details">
+                    <div class="vendor-img">
+                        <h2>Buy</h2>
+                    </div>
+
+                    <div class="vendor-tag">
+                        <i style="color: rgb(5, 194, 5);" class="fab fa-whatsapp"></i>
+                        <i style="color: var(--color);" class="fas fa-envelope"></i>
+                        <i style="color: var(--color);" class="fas fa-phone-alt"></i>
+                    </div>
+                </div> 
+            </div>
+
+        </section>
+
+        <div class="topic">
+            <h1>Related Items</h1>
+        </div>
+
+        <section class="product-items">
+            {% for product in products %}
+                <div class="product">
+                    <div class="product-content">
+                        <div class="product-img">
+                            <img src="{{ product.image1.url }}" alt="" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                        </div>
+
+                        <div class="product-info">
+                            <div class="product-info-top" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                                <h5>{{ product.category }}</h5>
+                            </div>
+
+                            <div class="product-info-bottom" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                                <h2 class="name">{{ product.name }}</h2>
+                                <h2 class="price">{{ product.price }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </section>
+    {% endblock content %}
+    
+</body>
+</html>

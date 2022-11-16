@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/font-6/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/font-6/css/fontawesome.min.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
+<body>
+    <header class="H1">
+        <image class="logo" src="{% static '/images/IMG-20221031-WA0014.jpg' %}"></image>
+        <form action="{% url 'delight:search_results' %}" method="get">
+            <div class="search-nav-bar">
+                <input name="q" type="text" placeholder="Search...">
+                <!-- <a href=""><i class="fas fa-search"></i></a> -->
+            </div>
+        </form>
+
+        <div class="user-location">
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="location-stores">
+                <h5>Mt Pleasant, Groombridge</h5>
+                <h5>Highlands, Portal 1 Shop 27</h5>
+            </div>
+        </div>
+
+        <div class="nav-tab">
+            <div class="sml-search">
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+        {% if request.user.is_authenticated %}
+            <div class="user">
+                <a href="{% url 'account:logout' %}" class="btn">Sign Out</a>
+            </div>
+        {% else %}
+            <div class="user">
+                <a href="{% url 'account:login' %}" class="btn">Sign In</a>
+            </div>
+        {% endif %}
+        </div>
+
+        <div class="sml-nav">
+            <div class="sml-search">
+                <a href=""><i class="fas fa-search"></i></a>
+            </div>
+
+            <div class="sml-nav-2">
+
+                <button class="mobile-toggle" 
+                aria-controls="pry-nav" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav>
+                <ul id="pry-nav" data-visible="false" class="pry-nav">
+                    <div class="profile-acc">
+                        <img src="{% static '/images/log2.jpg' %}" alt="">
+                        {% if request.user.is_authenticated %}
+                            <div class="profile-acc-details">
+                                <h2><span><i class="fas fa-user"></i></span>Sign Out</h2>
+                                <a href="{% url 'account:logout' %}">Log Out</a>
+                            </div>
+                        {% else %}
+                            <div class="profile-acc-details">
+                                <h2><span><i class="fas fa-user"></i></span>Sign In/Up</h2>
+                                <a href="{% url 'account:login' %}">Log In</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <li><a href="{% url 'delight:index' %}"><span><i class="fas fa-users"></i></span> Home</a></li>
+                    <li><a href="{% url 'delight:store' %}"><span> <i class="fas fa-images"></i></span> Store</a></li>
+                    <li><a href="{% url 'delight:contact_us' %}"><span><i class="fas fa-store"></i></span> Contact Us</a></li>
+                    
+                    <div class="user-location user-location-beta">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="location-stores">
+                            <h5>Mt Pleasant, Groombridge</h5>
+                            <h5>Highlands, Portal 1 Shop 27</h5>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+            </div> 
+        </div>
+
+    </header>
+
+    <header class="H2">
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="{% url 'delight:index' %}">Home</a></li>
+                <li><a href="{% url 'delight:about_us' %}">About Us</a></li>
+                <li><a href="{% url 'delight:store' %}">Store</a></li>
+                <li><a href="{% url 'delight:contact_us' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+    {% block content %}
+    {% endblock content %}
+    <footer class="featured foot-det">
+        <div class="col">
+            <h1>Let's Get Digital</h1>
+
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="vendor-tag">
+                    <i style="color: white;" class="fab fa-facebook-f"></i>
+                    <i style="color: white;" class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>About</h3>
+            <a href="{% url 'delight:about_us' %}">About Us</a>
+            <a href="{% url 'delight:about_us' %}">Terms & Conditions</a>
+            <a href="{% url 'delight:about_us' %}">Privacy Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>My Account</h3>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'account:logout' %}">Sign Out</a>
+            {% else %}
+                <a href="{% url 'account:login' %}">Sign In</a>
+            {% endif %}
+            <a href="{% url 'delight:contact_us' %}">Contact Us</a>
+        </div>
+
+        <section class="line">
+            <p>Copyright 2022 @Digital Delight. All rights reserved.</p>
+        </section>
+        
+    </footer>
+
+
+    <script src="{% static '/main2.js' %}" defer></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script type="text/javascript">
+        $('.main-carousel').flickity({
+            cellAlign: 'left',
+            wrapAround:true,
+            freeScroll: true
+        });
+    </script> 
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'delight/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Login {% endblock title %}
+</head>
+<body>
+    {% block content %}
+        <section class="log-in-form"> 
+            <div class="sign-up">
+                <header><h1>Welcome</h1></header>
+        
+                <div class="form-outer">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="sign-page slidepage">
+                            {% for field in login_form %}
+                                {% for error in field.errors %}
+                                    <h2>{{ error }}</h8>
+                                {% endfor %}
+                            {% endfor %}
+
+
+
+                            {% if login_form.non_field_errors %}
+                                {{ login_form.non_field_errors }}
+                            {% endif %}
+        
+                        <div class="input-field">
+                            <div class="input-label">Email Address</div>
+                            <input name="email" type="email">
+                        </div>
+        
+                        <div class="input-field">
+                            <div class="input-label">Password</div>
+                            <input name="password" type="password">
+                        </div>
+        
+                        <div style="margin-top: -5%;" class="input-field">
+                            <p>If you want to create an account, click on this link<a style="color: var(--color); font-weight: 600; margin-left: 2%;" href="{% url 'account:register' %}">Sign Up</a></p>
+                        </div>
+        
+                        <div class="input-field nextBtn">
+                            <button type="submit" style="font-size: 1.1rem; font-weight:600; letter-spacing:1px;" class="btn">Login</button>
+                        </div>
+                    </div> 
+                    </form>
+                </div>
+            </div>
+        </section> 
+        <!-- <form method="post">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <input type="submit" value="login">
+
+        </form>
+        <a href="{% url 'account:register' %}">Register</a> -->
+     {% endblock content %}
+</body>
+</html>

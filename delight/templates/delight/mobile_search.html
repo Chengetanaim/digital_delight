@@ -1,0 +1,33 @@
+<!-- {% extends 'delight/base.html' %} -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block title %}Search{% endblock title %}
+</head>
+<body>
+    {% block content %}
+        <section class="search-here">
+        <div class="search-here-tag">
+            <h1>Search Here</h1>
+        <p>We are here to help you search for any product</p>
+        </div>
+
+        <div class="search-field">
+            <form action="{% url 'delight:search_results' %}" method="get">
+                    <input name="q" type="text" placeholder="Search...">
+            </form>
+            <a href=""><i class="fas fa-search"></i></a>
+        </div>
+        </section>
+
+        <div class="search-pic">
+            <img src="{% static '/undraw_location_search_re_ttoj.svg' %}" alt="">
+        </div>
+    {% endblock content %}
+</body>
+</html>

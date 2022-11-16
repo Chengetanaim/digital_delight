@@ -1,0 +1,73 @@
+{% extends 'delight/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Register {% endblock title %}
+</head>
+<body>
+    {% block content %} 
+        <section class="log-in-form"> 
+            <div class="sign-up">
+                <header><h1>Join Us</h1></header>
+        
+                <div class="form-outer">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="sign-page slidepage">
+                            {% for field in registration_form %}
+                            <p>
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </p>
+                            {% endfor %}
+                            {% if registration_form.non_field_errors %}
+                                <div style="color: red">
+                                    <p>{{ registration_form.non_field_errors }}</p>
+                                </div>
+                            {% endif %}
+        
+                        <div class="input-field">
+                            <div class="input-label">Email Address</div>
+                            <input name="email" type="email">
+                        </div>
+
+                        <div class="input-field">
+                            <div class="input-label">Username</div>
+                            <input name="username" type="text">
+                        </div>
+        
+                        <div class="input-field">
+                            <div class="input-label">Password</div>
+                            <input name="password1" type="password">
+                        </div>
+
+                        <div class="input-field">
+                            <div class="input-label">Confirm Password</div>
+                            <input name="password2" type="password">
+                        </div>
+        
+                        <div style="margin-top: -5%;" class="input-field">
+                            <p>If you have an existing account, click on this link<a style="color: var(--color); font-weight: 600; margin-left: 2%;" href="{% url 'account:login' %}">Sign In</a></p>
+                        </div>
+        
+                        <div class="input-field nextBtn">
+                            <button type="submit" style="font-size: 1.1rem; font-weight:600; letter-spacing:1px;" class="btn">Register</button>
+                        </div>
+                    </div> 
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- <form method="post">
+            {% csrf_token %}
+            {{ registration_form.as_p }}
+            <input type="submit" value="Register">
+
+        </form> -->
+     {% endblock content %}
+</body>
+</html>

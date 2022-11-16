@@ -1,0 +1,100 @@
+{% extends 'delight/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}About Us{% endblock title %}
+</head>
+<body>
+    {% block content %}
+        <section style="background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url({% static '/images/clay-banks-XvS-uKUoUao-unsplash.jpg' %});" class="top-container">
+            <div class="top-container-info">
+                <h1>About Us</h1>
+                <p>We offer the best electronic gadgets<br>at accessible prices.</p>
+            </div>
+
+        </section>
+
+        <div class="top-info">
+            <h4>We are Digital Delight</h4>
+            <h1>Since 2018, our goal has been to deliver the best<br>technology to the society.</h1>
+        </div>
+
+        <section class="business-info">
+            <div class="feature">
+                <div class="feature-top">
+                    <i class="fas fa-users"></i>
+                    <h2>Customer Support</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-top">
+                    <i class="fas fa-users"></i>
+                    <h2>Free Delivery</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-top">
+                    <i class="fas fa-users"></i>
+                    <h2>Safety Guaranteed</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="bottom-info">
+            <h1 style="color: var(--color);">Business Hours</h1>
+            <div class="location-stores">
+                <h4>Mt Pleasant, Groombridge</h4>
+                <h4>Highlands, Portal 1 Shop 27</h4>
+            </div>
+            <div class="time-info">
+
+                <div class="time-info-schedule">
+                    <div class="days">
+                        <h3>Mon - Fri</h3>
+                        <h3>Sat</h3>
+                        <h3>Sun</h3>
+                    </div>
+                    <div class="time">
+                        <h3>0830hrs - 1630hrs</h3>
+                        <h3>0830hrs - 1530hrs</h3>
+                        <h3>Closed</h3>
+                    </div>   
+                </div>
+
+                <div class="campaign">
+                    <img src="{% static '/images/IMG-20221031-WA0014.jpg' %}" alt="">
+                </div>
+
+            </div>
+        </div>
+
+        <section class="banner">
+
+            <div class="banner-info">
+            <h1>Lets Talk</h1>
+            <p>Feel free to get in touch with us<br>if you have any questions.</p>
+            <a href="{% url 'delight:contact_us' %}" class="btn">Contact Us</a>
+            </div>
+
+        </section>
+    {% endblock content %}    
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% extends 'delight/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Contact Us{% endblock title %}
+</head>
+<body>
+    {% block content %}
+        <section class="top-container">
+            <div class="top-container-info">
+                <h1>Contact Us</h1>
+                <p>Need information on our products or have any queries,<br>contact us using the number below or visit our stores on those locations.</p>
+            </div>
+
+        </section>
+
+        <div class="top-info">
+            <h4>We are Digital Delight</h4>
+            <h1>Get In Touch With Us.</h1>
+        </div>
+
+        <section class="business-info">
+            <div class="feature feature-beta">
+                <div class="feature-top">
+                    <i class="fas fa-users"></i>
+                    <h2>Customer Support</h2>
+                </div>
+
+                <div class="feature-bottom">
+
+                <div class="vendor-tag">
+                    <i style="color: rgb(5, 194, 5);" class="fab fa-whatsapp"></i>
+                    <i style="color: var(--color);" class="fas fa-envelope"></i>
+                    <i style="color: var(--color);" class="fas fa-phone-alt"></i>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-det">
+                        <i class="fas fa-user"></i>
+                        <h3>+263 775 220 220</h3>
+                    </div>
+
+                    <div class="contact-det">
+                        <i class="fas fa-user"></i>
+                        <h3>+263 714 524 343</h3>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="feature feature-alpha">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d474.91598748004867!2d31.06470536124701!3d-17.776280109229102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931af2d92630ac7%3A0xdd60af8354f51551!2sGroombridge%20Shopping%20Mall!5e0!3m2!1sen!2szw!4v1667657228436!5m2!1sen!2szw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <div class="bottom-info">
+            <h1 style="color: var(--color);">Business Hours</h1>
+            <div class="location-stores">
+                <h4>Mt Pleasant, Groombridge</h4>
+                <h4>Highlands, Portal 1 Shop 27</h4>
+            </div>
+            <div class="time-info">
+
+                <div class="time-info-schedule">
+                    <div class="days">
+                        <h3>Mon - Fri</h3>
+                        <h3>Sat</h3>
+                        <h3>Sun</h3>
+                    </div>
+                    <div class="time">
+                        <h3>0830hrs - 1630hrs</h3>
+                        <h3>0830hrs - 1530hrs</h3>
+                        <h3>Closed</h3>
+                    </div>   
+                </div>
+
+                <div class="campaign">
+                    <img src="{% static '/images/IMG-20221031-WA0014.jpg' %}" alt="">
+                </div>
+
+            </div>
+        </div>
+
+        <h1 style="color: var(--color); margin-left: 1%; margin-top: 3%;">Frequently Asked Questions</h1>
+
+        <section class="business-info business-info-beta">
+            <div class="feature">
+                <div class="feature-top">
+                    <h2>How do I order a product?</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-top">
+                    <h2>What's our return policy?</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-top">
+                    <h2>Safety Guaranteed</h2>
+                </div>
+
+                <div class="feature-bottom">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt nostrum nulla voluptatibus tempora eligendi?</p>
+                </div>
+            </div>
+        </section>
+    {% endblock content %}
+</body>
+</html>

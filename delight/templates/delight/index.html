@@ -1,0 +1,163 @@
+{% extends 'delight/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Home {% endblock title %}
+</head>
+<body>
+    {% block content %}
+    <section class="top-container">
+        <div class="top-container-info">
+            <h1>Lets Get Digital</h1>
+            <p>We offer the best electronic gadgets<br>at accessible prices.</p>
+            <a href="{% url 'delight:store' %}" class="btn">Shop Now</a>
+        </div>
+
+    </section>
+
+    <section class="top">
+        {% for category in categories %}
+
+            <div style="background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url({{category.image.url}});" class="top-banter">
+                <h4>{{ category.name }}</h4>
+                <p>{{ category.description }}</p>
+                <a href="{% url 'delight:category' category.id %}" class="btn-cat">Shop Now</a>
+            </div>
+
+        {% endfor %}
+
+       
+    </section>
+
+    <div class="topic">
+        <h5>Hot Items</h5>
+        <h1>New Arrivals</h1>
+    </div>
+
+    <section class="product-items">
+        {% for product in products %}
+        <div class="product">
+            <div class="product-content">
+                <div class="product-img">
+                    <img src="{{ product.image1.url }}" alt="" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                </div>
+
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <h5>{{ product.category }}</h5>
+                    </div>
+
+                    <div class="product-info-bottom">
+                        <h2 class="name">{{ product.name }}</h2>
+                        <h2 class="price">{{ product.price }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    <section class="banner">
+
+        <div class="banner-info">
+        <h1>Introducing Virtual Reality</h1>
+        <p>Get up to fast with the best technology<br>so as to enhance your experience</p>
+        <a href="{% url 'delight:store' %}" class="btn">Shop Now</a>
+        </div>
+
+    </section>
+
+    <div class="topic">
+        <h5>Grab Fast</h5>
+        <h1>Featured Savings</h1>
+    </div>
+
+    <section class="product-items">
+        {% for product in savings_products %}
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="{{ product.image1.url }}" alt="" onclick="window.location.href='{% url 'delight:savings_product' product.id %}';">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-info-top" onclick="window.location.href='{% url 'delight:savings_product' product.id %}';">
+                            <h5>{{ product.category }}</h5>
+                        </div>
+
+                        <div class="product-info-bottom"onclick="window.location.href='{% url 'delight:savings_product' product.id %}';">
+                            <h2 class="name">{{ product.name }}</h2>
+                            <div class="price-tags">
+                            <h2 class="old-price">{{ product.price_before }}</h2>
+                            <h2 class="price">{{ product.price_now }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        {% endfor %}
+    </section>
+
+    <section class="top">
+        {% for category in categories %}
+            <div style="background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url({{category.image.url}});" class="top-banter">
+                <h4>{{ category.name }}</h4>
+                <p>{{ category.description }}</p>
+                <a href="{% url 'delight:category' category.id %}" class="btn-cat">Shop Now</a>
+            </div>
+        {% endfor %}
+
+    
+        
+    </section>
+
+    <div class="topic">
+        <h5>This Week</h5>
+        <h1>Trending</h1>
+    </div>
+
+    <section class="trending-items">
+        <div class="hot-item">
+            <h4>All the latest gadgets</h4>
+            <h2>At an affordable price!!</h2>
+        </div>
+
+        <div class="other-items other-items-alpha">
+            <div class="product-items beta">
+                {% for product in products %}
+                <div class="product">
+                    <div class="product-content">
+                        <div class="product-img">
+                            <img src="{{ product.image1.url }}" alt="" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                        </div>
+        
+                        <div class="product-info">
+                            <div class="product-info-top" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                                <h5>{{ product.category }}</h5>
+                            </div>
+        
+                            <div class="product-info-bottom" onclick="window.location.href='{% url 'delight:product' product.id %}';">
+                                <h2 class="name">{{ product.name }}</h2>
+                                <h2 class="price">{{ product.price }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        
+               
+        
+        
+               
+        </div>
+        </section>
+    {% endblock content %}
+</body>
+</html>
